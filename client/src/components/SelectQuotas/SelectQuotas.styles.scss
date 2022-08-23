@@ -1,0 +1,29 @@
+.container {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+}
+
+.ticket {
+  position: relative;
+  display: inline-block;
+  padding: 3px 12px;
+  -webkit-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.62);
+  -moz-box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.62);
+  box-shadow: 2px 2px 4px 0px rgba(0,0,0,0.62);
+  border: 1px #c2b9b9 solid;
+  margin-right: 10px;
+}
+
+.button-plus {
+  position: absolute;
+
+  &:after {
+    font-size: 14px;
+    display: inline-block;
+    content: "\002b";
+  }
+
+
+}

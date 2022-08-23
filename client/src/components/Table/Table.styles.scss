@@ -1,0 +1,103 @@
+.container {
+    max-width: 1000px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.table {
+    li {
+        border-radius: 3px;
+        padding: 25px 30px;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 25px;
+    }
+
+    &Header {
+        background-color: #95A5A6;
+        font-size: 14px;
+        text-transform: uppercase;
+        letter-spacing: 0.03em;
+    }
+
+    &-row {
+        background-color: #ffffff;
+        box-shadow: 0 0 9px 0 rgba(0,0,0,0.1);
+    }
+
+    .col-1 {
+        flex-basis: 5.1%;
+    }
+    .col-2 {
+        flex-basis: 8%;
+    }
+    .col-3 {
+        flex-basis: 4%;
+    }
+    .col-4 {
+        flex-basis: 14%;
+    }
+
+    .col-5 {
+        flex-basis: 7%;
+    }
+
+    .col-6 {
+        display: flex;
+        position: relative;
+        flex-basis: 4%;
+    }
+
+
+    .button {
+        position: absolute;
+        left: 110%;
+        bottom: -4px;
+        cursor: pointer;
+        &:hover {
+            color: #c40404;
+        }
+
+        &:after{
+            font-size: 24px;
+            display: inline-block;
+            content: "\00d7";
+        }
+    }
+
+    .col {
+        text-align: center;
+    }
+}
+
+.table-row-exit-active {
+    animation: fade-out 700ms forwards;
+}
+
+.table-row-enter-active {
+    animation: fade-in 700ms forwards;
+}
+
+@keyframes fade-in {
+    0%{
+        opacity: 0;
+        transform: translateX(100px);
+    }
+    100%{
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes fade-out {
+    0%{
+        opacity: 1;
+        transform: translateX(0);
+    }
+    100%{
+        transform: translateX(100px);
+        opacity: 0;
+    }
+}
