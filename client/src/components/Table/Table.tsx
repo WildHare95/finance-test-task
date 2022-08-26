@@ -34,38 +34,44 @@ const Table = () => {
                 <div>Dividend</div>
                 <div>Yield</div>
             </li>
-            <TransitionGroup component="ul">
-                {
-                    data.map((item) => {
-                        return <CSSTransition
-                            key={item.ticker}
-                            timeout={700}
-                            classNames="table-row"
-                        >
-                            <li className="table-row">
-                                <div className="col col-1">{item.ticker}</div>
-                                <div className="col col-2">{item.exchange}</div>
-                                <div className="col col-3">
-                                    {item.price}
-                                    <Trend price={+item.price}/>
-                                </div>
-                                <div className="col col-4">{item.change_percent}</div>
-                                <div className="col col-5">{item.dividend}</div>
-                                <div className="col col-6">
-                                    {item.yield}
-                                    <div
-                                        className="button"
-                                        onClick={() => {
-                                            dispatch(setSampleOfQuotas([...sample, item.ticker]))
-                                        }}/>
-                                </div>
-                            </li>
-                        </CSSTransition>
-                    })
-                }
-            </TransitionGroup>
+            {
+                quotasData.length
+                    ? <TransitionGroup component="ul">
+                        {
+                            data.map((item) => {
+                                return <CSSTransition
+                                    key={item.ticker}
+                                    timeout={700}
+                                    classNames="table-row"
+                                >
+                                    <li className="table-row">
+                                        <div className="col col-1">{item.ticker}</div>
+                                        <div className="col col-2">{item.exchange}</div>
+                                        <div className="col col-3">
+                                            {item.price}
+                                            <Trend price={+item.price}/>
+                                        </div>
+                                        <div className="col col-4">{item.change_percent}</div>
+                                        <div className="col col-5">{item.dividend}</div>
+                                        <div className="col col-6">
+                                            {item.yield}
+                                            <div
+                                                className="button"
+                                                onClick={() => {
+                                                    dispatch(setSampleOfQuotas([...sample, item.ticker]))
+                                                }}/>
+                                        </div>
+                                    </li>
+                                </CSSTransition>
+                            })
+                        }
+                    </TransitionGroup>
+                    : <div className="table-none">
+                        No internet connection
+                    </div>
+            }
         </div>
-</div>
+    </div>
 }
 
 export default Table

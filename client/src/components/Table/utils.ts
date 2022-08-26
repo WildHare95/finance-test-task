@@ -7,5 +7,5 @@ export const sortBySample = (data: ServerResponseQuotas[], sample: string[]) => 
             acc = [...acc, curr]
         }
         return acc
-    }, [] as any)
+    }, [] as ServerResponseQuotas[])
 }

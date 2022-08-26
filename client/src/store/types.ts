@@ -16,7 +16,8 @@ type ServerToClientEvents = {
 }
 
 type ClientToServerEvents = {
-    start: () => void
+    start: () => void,
+    changeInterval: (num: number) => void
 }
 
 export type SocketEvents = Socket<ServerToClientEvents, ClientToServerEvents>

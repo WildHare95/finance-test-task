@@ -4,12 +4,14 @@ import {ServerResponseQuotas} from "../types";
 
 export interface QuotasState {
     quotasData: ServerResponseQuotas[]
-    sampleOfQuotas: string[]
+    sampleOfQuotas: string[],
+    fetchInterval: number
 }
 
 const initialState: QuotasState = {
     quotasData: [],
-    sampleOfQuotas: []
+    sampleOfQuotas: [],
+    fetchInterval: 5
 }
 
 export const quotasSlice = createSlice({
@@ -21,11 +23,14 @@ export const quotasSlice = createSlice({
         },
         setSampleOfQuotas: (state, action: PayloadAction<string[]>) => {
             state.sampleOfQuotas = action.payload
+        },
+        setIntervalTime: (state, action: PayloadAction<number>) => {
+            state.fetchInterval = action.payload
         }
 
     }
 })
 
-export const { setQuotasData, setSampleOfQuotas } = quotasSlice.actions
+export const { setQuotasData, setSampleOfQuotas, setIntervalTime } = quotasSlice.actions
 
 export default quotasSlice.reducer

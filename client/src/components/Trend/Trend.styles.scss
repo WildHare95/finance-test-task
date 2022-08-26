@@ -1,0 +1,32 @@
+.trend {
+
+  &-arrow {
+
+    &-up {
+
+      &:before {
+
+        color: blue;
+        content: "\25B2";
+        margin-top: 1px;
+
+      }
+
+    }
+
+    &-down {
+
+      &:before {
+
+        color: red;
+        content: "\25BC";
+        margin-bottom: 5px;
+        bottom: -.5em;
+
+      }
+
+    }
+
+  }
+
+}

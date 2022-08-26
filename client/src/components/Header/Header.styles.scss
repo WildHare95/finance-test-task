@@ -1,0 +1,53 @@
+.header {
+  &-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+    background: #f86262;
+    padding: 0 15px;
+    margin-bottom: 15px;
+  }
+
+  &-logo {
+    background: #fde400;
+    padding: 10px;
+    width: 60px;
+    box-sizing: border-box;
+    border-radius: 50%;
+  }
+
+  &-input {
+    all: unset;
+    width: 30px;
+    background: #fff;
+    border-radius: 3px;
+    margin-right: 5px;
+    margin-left: 5px;
+
+  }
+
+  &-button {
+    background: #508fee;
+    color: #eee1e1;
+    border: none;
+    display: inline-block;
+    padding: 2px;
+    border-radius: 3px;
+    cursor: pointer;
+
+    &:active {
+      border: #ffffff solid 1px;
+    }
+
+    &:disabled {
+      opacity: 0.7;
+      pointer-events: none;
+    }
+  }
+
+  &-form {
+    display: flex;
+  }
+
+}
