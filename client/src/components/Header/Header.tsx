@@ -38,9 +38,6 @@ const Header = () => {
                     value={customTime}
                     min={3}
                     max={10}
-                    onKeyDown={(event) => {
-                        event.preventDefault();
-                    }}
                     onChange={onChangeTime}
                     type="number"
                     disabled={!quotasData.length}
@@ -49,6 +46,7 @@ const Header = () => {
             <input
                 className="header-button"
                 type="submit"
+                data-testid="12"
                 value="Set time"
                 disabled={!quotasData.length}
             />
