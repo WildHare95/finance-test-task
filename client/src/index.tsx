@@ -7,13 +7,16 @@ import 'src/index.scss';
 import App from "./App";
 import reportWebVitals from './reportWebVitals';
 import {setupStore} from "src/store/store";
+import {socket, SocketContext} from "src/context/socket";
 
 const root = createRoot(document.getElementById('root') as HTMLBRElement)
 const store = setupStore()
 
 root.render(
     <Provider store={store}>
-        <App />
+        <SocketContext.Provider value={socket}>
+            <App />
+        </SocketContext.Provider>
     </Provider>
 )
 

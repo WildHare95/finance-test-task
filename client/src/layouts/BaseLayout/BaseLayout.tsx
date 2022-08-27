@@ -1,29 +1,28 @@
-import React, {useCallback, useEffect, useState} from "react";
-import {io} from "socket.io-client";
-import {ServerResponseQuotas, SocketEvents} from "src/store/types";
-import {SERVER_CONNECT_EVENT, SERVER_START_EVENT, SERVER_TICKER_EVENT, SERVER_URL} from "src/constants/socketEvents";
+import React, {useCallback, useContext, useEffect} from "react";
+import {ServerResponseQuotas} from "src/store/types";
+
+import {
+    SERVER_CHANGE_INTERVAL_EVENT,
+    SERVER_CONNECT_EVENT,
+    SERVER_START_EVENT,
+    SERVER_TICKER_EVENT
+} from "src/constants/socketEvents";
+
 import {useAppDispatch, useAppSelector} from "src/store/hooks";
 import {setQuotasData} from "src/store/data/data-slice";
 import Table from "src/components/Table/Table";
 import SelectQuotas from "src/components/SelectQuotas/SelectQuotas";
 import {selectFetchInterval} from "src/store/selectors";
+import {SocketContext} from "src/context/socket";
 
 const BaseLayout = () => {
-    const [socket, setSocket] = useState<SocketEvents | null>(null)
+    const socket = useContext(SocketContext)
     const dispatch = useAppDispatch()
     const fetchingIntervalInSeconds = useAppSelector(selectFetchInterval)
 
     const onSetQuotas = useCallback((data: ServerResponseQuotas[]) => {
             dispatch(setQuotasData(data))
     }, [dispatch])
-
-    useEffect(() => {
-        const newSocket = io(SERVER_URL)
-        setSocket(newSocket)
-        return () => {
-            newSocket.close()
-        }
-    }, [])
 
     useEffect(() => {
         if (socket) {
@@ -46,7 +45,7 @@ const BaseLayout = () => {
 
     useEffect(() => {
         if (socket) {
-            socket.emit("changeInterval", fetchingIntervalInSeconds * 1000);
+            socket.emit(SERVER_CHANGE_INTERVAL_EVENT, fetchingIntervalInSeconds * 1000);
         }
         return () => {
 
