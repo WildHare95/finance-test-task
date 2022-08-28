@@ -6,11 +6,11 @@ Implement a solution to display price tickers data on the UI in realtime.
 Price data is available from a locally running service. Any additional visualisations to indicate how prices have changed would be a plus. Testing is also an important part to this exercise.
 
 Сompleted :
-- application should connect to the locally running service
-- application should render price changes for some tickers in real time
+- application connect to the locally running service
+- application render price changes for some tickers in real time
 
 As a bonus I can implemented:
-- any additional visual effects to highlight positive or negative changes in the prices
+- visual effects to highlight positive or negative changes in the prices
 - the possibility to specify interval time by user
 - the possibility to add/remove ticker from watching group
 
