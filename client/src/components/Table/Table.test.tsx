@@ -11,7 +11,7 @@ import {setQuotasData} from "src/store/data/data-slice";
 test("Table testing error", () => {
     renderWithProviders(<Table/>)
 
-    const errScreen = screen.getByText("No internet connection")
+    const errScreen = screen.getByText("Server is down")
 
     expect(errScreen).toBeInTheDocument()
 })

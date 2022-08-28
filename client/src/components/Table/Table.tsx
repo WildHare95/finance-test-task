@@ -67,7 +67,7 @@ const Table = () => {
                         }
                     </TransitionGroup>
                     : <div className="table-none">
-                        No internet connection
+                        Server is down
                     </div>
             }
         </div>
