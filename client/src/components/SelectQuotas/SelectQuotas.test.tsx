@@ -1,10 +1,11 @@
 import React from "react";
+import {screen} from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+import {act} from "react-dom/test-utils";
+
 import {renderWithProviders} from "src/store/test-utils";
 import SelectQuotas from "src/components/SelectQuotas/SelectQuotas";
 import { setSampleOfQuotas } from "src/store/data/data-slice";
-import {act} from "react-dom/test-utils";
-import userEvent from "@testing-library/user-event";
-import {screen} from "@testing-library/react";
 
 
 test("Select elements should working", async () => {
